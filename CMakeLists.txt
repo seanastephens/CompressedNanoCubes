@@ -22,3 +22,6 @@ if(Boost_FOUND)
 	  )
 	target_link_libraries(sanity_check ${Boost_LIBRARIES})
 endif()
+
+enable_testing()
+add_test(sanity_test sanity_check)

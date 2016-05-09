@@ -11,7 +11,7 @@ class ArrayBackedNanoCube {
 public:
 	ArrayBackedNanoCube(size_t num_dimensions);
 	void add(vector<vector<bool>> path, uint32_t value);
-	uint32_t count(vector<vector<bool>> path);
+	uint32_t summary(vector<vector<bool>> path);
 
 private:
 	const size_t num_dimensions;

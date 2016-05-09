@@ -19,5 +19,12 @@ int main() {
 		a.add(d, 1);
 
 	vector<vector<bool>> query = { { 1, 1 }, { 1, 0} };
-	cout << a.count(query) << " should be 1" << endl;
+	int summary = a.summary(query);
+
+	if(summary != 1) {
+		cout << summary << " should be 1" << endl;
+		return 1;
+	} else {
+		return 0;
+	}
 }
