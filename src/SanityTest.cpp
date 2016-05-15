@@ -1,11 +1,11 @@
-#include <iostream>
-#include <vector>
+#include <boost/test/unit_test.hpp>
 
 #include "ArrayBackedNanoCube.h"
 
-using namespace std;
+BOOST_AUTO_TEST_SUITE(SanityTest)
 
-int main() {
+BOOST_AUTO_TEST_CASE(UpdateDoesNotCommuteWithConcat) 
+{
 	vector<vector<vector<bool>>> data = {
 		{ { 1, 1 } , { 1, 0 } },
 		{ { 1, 1 } , { 1, 1 } },
@@ -19,12 +19,7 @@ int main() {
 		a.add(d, 1);
 
 	vector<vector<bool>> query = { { 1, 1 }, { 1, 0} };
-	int summary = a.summary(query);
-
-	if(summary != 1) {
-		cout << summary << " should be 1" << endl;
-		return 1;
-	} else {
-		return 0;
-	}
+	BOOST_TEST(a.summary(query) == 1);
 }
+
+BOOST_AUTO_TEST_SUITE_END()

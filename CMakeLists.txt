@@ -11,17 +11,18 @@ SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "/usr/local/lib")
 # set(Boost_USE_STATIC_LIBS OFF)
 # set(Boost_USE_MULTITHREADED ON)
 # set(Boost_USE_STATIC_RUNTIME OFF)
-find_package(Boost 1.60.0 COMPONENTS iostreams system filesystem serialization)
+find_package(Boost 1.61.0 COMPONENTS iostreams system filesystem serialization)
 
 if(Boost_FOUND)
 	include_directories(${Boost_INCLUDE_DIRS})
 
-	add_executable (sanity_check
-	  src/sanity_check.cpp
-	  src/ArrayBackedNanoCube.cpp
+	add_executable (test_exe
+	  ./src/main_test.cpp
+	  ./src/SanityTest.cpp
+	  ./src/ArrayBackedNanoCube.cpp
 	  )
-	target_link_libraries(sanity_check ${Boost_LIBRARIES})
+	target_link_libraries(test_exe ${Boost_LIBRARIES})
 endif()
 
 enable_testing()
-add_test(sanity_test sanity_check)
+add_test(test test_exe)
