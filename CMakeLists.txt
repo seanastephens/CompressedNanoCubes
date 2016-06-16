@@ -19,6 +19,8 @@ if(Boost_FOUND)
 	add_executable (test_exe
 	  ./src/main_test.cpp
 	  ./src/SanityTest.cpp
+	  ./src/ArrayStoreTest.cpp
+	  ./src/ArrayStore.h
 	  ./src/ArrayBackedNanoCube.cpp
 	  )
 	target_link_libraries(test_exe ${Boost_LIBRARIES})
